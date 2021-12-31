@@ -1,0 +1,72 @@
+/*! Trendy: CoBlocks Carousel */
+.wp-block-coblocks-gallery-carousel .has-carousel:not(.has-aligned-cells) .coblocks-gallery--item {
+	transition: opacity 0.75s, transform 0.75s;
+
+	&:not(.is-selected) {
+		transform: scale(0.9);
+	}
+}
+
+.wp-block-coblocks-gallery-carousel {
+
+	& .coblocks-gallery--figure::before {
+		display: none;
+	}
+
+	& .flickity-button {
+		background: var(--go--color--background);
+		border: 2px solid var(--go-heading--color--text) !important;
+		border-radius: 0;
+		box-shadow: 0.4em 0.4em 0 0 rgba(0, 0, 0, 0.075);
+		height: 120px;
+		transition: all 200ms cubic-bezier(0.7, 0, 0.3, 1);
+		width: 65px;
+
+		&::after {
+			background-color: transparent;
+			background-image: url(../../../dist/images/design-styles/trendy/carousel-arrow.svg);
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: 100%;
+			border-radius: 0;
+			content: "";
+			display: inline-block;
+			height: 32px;
+			left: 15px;
+			position: absolute;
+			top: calc(50% - 16px);
+			transition: transform 200ms cubic-bezier(0.7, 0, 0.3, 1);
+			width: 32px;
+		}
+
+		&:active,
+		&:focus,
+		&:hover {
+			border-color: var(--go--color--secondary) !important;
+		}
+
+		& .flickity-button-icon {
+			display: none;
+		}
+
+		&.previous {
+
+			&::after {
+				left: 15px;
+				-webkit-mask-image: unset;
+				right: auto;
+				transform: rotate(180deg);
+			}
+		}
+
+		&.next {
+
+			&::after {
+				left: auto;
+				-webkit-mask-image: unset;
+
+				right: 15px;
+			}
+		}
+	}
+}

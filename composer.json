@@ -1,0 +1,31 @@
+{
+	"name": "apalodi/colorio",
+	"version": "1.0.0",
+	"description": "Colorful Blog and Magazine WordPress Theme.",
+	"homepage": "https://apalodi.com/themes/colorio/",
+	"type": "wordpress-theme",
+	"authors": [
+		{
+			"name": "Apalodi",
+			"email": "support@apalodi.com",
+			"homepage": "https://apalodi.com",
+			"role": "Developer"
+		}
+	],
+	"license": "Themeforest Standard",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"config": {
+		"sort-packages": true,
+		"optimize-autoloader": true,
+		"process-timeout": 2000
+	},
+	"require": {
+		"php": ">=5.6"
+	},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"wp-coding-standards/wpcs": "^2.3"
+	}
+}

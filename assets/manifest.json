@@ -1,0 +1,13 @@
+{
+  "main.js": "assets/dist/main-1b6906b7d388c8a55543.js",
+  "style.css": "assets/dist/style-1be28a326f993bc630a5.css",
+  "print.css": "assets/dist/print-0ef1c338ffa793be1573.css",
+  "rtl.css": "assets/dist/rtl-0df45d0cb3c4c5260b47.css",
+  "editor.css": "assets/dist/editor-50151163b0660c443ca6.css",
+  "editor.js": "assets/dist/editor-2c6a6fed9e5bcfd239f9.js",
+  "admin/admin.css": "assets/dist/admin/admin-a677c5d513f68a33f853.css",
+  "admin/admin.js": "assets/dist/admin/admin-bd118a851602397e4dd1.js",
+  "admin/customize-controls.css": "assets/dist/admin/customize-controls-8c5b220bf6f482881a90.css",
+  "admin/customize-controls.js": "assets/dist/admin/customize-controls-65a62648764929df2bd1.js",
+  "admin/customize-preview.js": "assets/dist/admin/customize-preview-654adf9de68e62560d21.js"
+}

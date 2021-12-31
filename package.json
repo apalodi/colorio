@@ -1,0 +1,73 @@
+{
+	"name": "@apalodi/colorio",
+	"version": "1.0.0",
+	"description": "Colorful Blog and Magazine WordPress Theme.",
+	"homepage": "https://apalodi.com/themes/colorio/",
+	"author": {
+		"name": "Apalodi",
+		"email": "support@apalodi.com",
+		"url": "https://apalodi.com"
+	},
+	"license": "Themeforest Standard",
+	"engineStrict": true,
+	"engines": {
+		"node": ">=16"
+	},
+	"browserslist": [
+		"supports es6-module and > 0.2%"
+	],
+	"scripts": {
+		"prepare": "husky install",
+		"watch": "webpack --watch --mode=development",
+		"start": "webpack serve --mode=development",
+		"build": "cross-env NODE_ENV=production webpack --mode=production",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"tests:run": "@php ./vendor/phpunit/phpunit/phpunit --filter Eightshift --bootstrap=\"./vendor/squizlabs/php_codesniffer/tests/bootstrap.php\" ./vendor/squizlabs/php_codesniffer/tests/AllTests.php",
+		"tests:checkcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs --standard=./Eightshift ./tests/",
+		"lint": "@php ./vendor/bin/parallel-lint --exclude .git --exclude .github --exclude vendor .",
+		"standards:list": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs -i",
+		"standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs Eightshift/Sniffs",
+		"standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf",
+		"update:browserlist": "npx browserslist@latest --update-db",
+		"watchd": "cross-env webpack",
+		"buildd": "cross-env && npm run lint && npm run test && NODE_ENV=production webpack",
+		"linst": "npm run lint:scripts && npm run lint:styles && npm run lint:php",
+		"lint:scripts": "eslint './assets/js/src/'",
+		"lint:styles": "stylelint './assets/css/src/'",
+		"lint:php": "cross-env ./vendor/bin/phpcs",
+		"lint:scripts:fix": "eslint './assets/js/src/' --fix",
+		"lint:styles:fix": "stylelint './assets/css/src/' --fix",
+		"lint:php:fix": "cross-env ./vendor/bin/phpcbf"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.16.5",
+		"@babel/plugin-syntax-dynamic-import": "^7.8.3",
+		"@babel/plugin-transform-runtime": "^7.16.5",
+		"@babel/preset-env": "^7.16.5",
+		"@babel/runtime": "^7.16.5",
+		"babel-loader": "^8.2.3",
+		"browser-sync-webpack-plugin": "^2.3.0",
+		"clean-webpack-plugin": "^4.0.0",
+		"cross-env": "^7.0.3",
+		"css-loader": "^6.5.1",
+		"husky": "^7.0.4",
+		"import-glob-loader": "^1.1.0",
+		"mini-css-extract-plugin": "^2.4.5",
+		"postcss": "^8.4.5",
+		"postcss-loader": "^6.2.1",
+		"postcss-preset-env": "^7.1.0",
+		"sass": "^1.45.1",
+		"sass-loader": "^12.4.0",
+		"webpack": "^5.65.0",
+		"webpack-cli": "^4.9.1",
+		"webpack-dev-server": "^4.7.2",
+		"webpack-fix-style-only-entries": "^0.6.1",
+		"webpack-manifest-plugin": "^4.0.2",
+		"webpack-merge": "^5.8.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint"
+		}
+	}
+}

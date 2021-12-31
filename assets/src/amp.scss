@@ -1,0 +1,33 @@
+body.amp .primary-menu .menu-item-has-children:hover button.dropdown-toggle.toggled-on + ul,
+body.amp .primary-menu button.toggled-on + ul {
+	display: block;
+}
+
+body.amp .primary-menu button.dropdown-toggle {
+	background: transparent;
+	border-radius: 0;
+	height: 100%;
+	left: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 99;
+}
+
+body.amp.menu-is-open .site-header {
+	position: fixed;
+	width: 100%;
+}
+
+body.amp input[type="search"] {
+	background: var(--go-input-interactive--color--background);
+}
+
+body.amp .dropdown-toggle:not(.toggled-on) + a + amp-state + ul.sub-menu {
+	display: none;
+}
+
+body.amp .dropdown-toggle.toggled-on + a > svg {
+	transform: translateY(-50%) rotate(180deg);
+}
