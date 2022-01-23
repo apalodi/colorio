@@ -106,17 +106,9 @@
 		<exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments" />
 	</rule>
 
-	<!-- Verify that the text_domain is set to the desired text-domain. -->
-	<rule ref="WordPress.WP.I18n">
-		<properties>
-			<property name="text_domain" value="colorio"/>
-		</properties>
-	</rule>
-
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="colorio"/>
 				<element value="apalodi"/>
 			</property>
 		</properties>

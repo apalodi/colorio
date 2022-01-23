@@ -2,7 +2,7 @@
 
 namespace Apalodi\Features;
 
-use Apalodi\Core\Utils\Assets;
+use Apalodi\Core\Utilities\Assets;
 
 class Enqueue_Scripts {
 	/**
@@ -26,7 +26,7 @@ class Enqueue_Scripts {
 	public function enqueue_scripts() {
 		$version = apalodi()->get_theme_info( 'version' );
 
-		wp_register_style( 'asona-style', Assets::get_url( 'style.css' ), [] );
+		wp_register_style( 'asona-style', Assets::get_url( 'style.css' ), [], apalodi()->get_theme_info( 'version', true ) );
 
 		wp_enqueue_style( 'asona-style' );
 

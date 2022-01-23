@@ -1,6 +1,6 @@
 <?php
 
-namespace Apalodi\Core\Utils;
+namespace Apalodi\Core\Utilities;
 
 trait Color_Helpers {
 	/**

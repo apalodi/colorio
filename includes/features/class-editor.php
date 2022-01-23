@@ -91,11 +91,11 @@ class Editor {
 	 */
 	public function add_block_editor_styles() {
 
-		$version = apalodi_get_theme_info( 'version' );
-		$gfonts_url = esc_url_raw( apalodi_get_gfonts_url() );
+		// $version = apalodi_get_theme_info( 'version' );
+		// $gfonts_url = esc_url_raw( apalodi_get_gfonts_url() );
 
-		wp_enqueue_style( 'asona-editor-fonts', $gfonts_url, [], $version );
-		wp_add_inline_style( 'asona-editor-fonts', apalodi_custom_colors_css() );
+		// wp_enqueue_style( 'asona-editor-fonts', $gfonts_url, [], $version );
+		// wp_add_inline_style( 'asona-editor-fonts', apalodi_custom_colors_css() );
 	}
 
 	public function eksell_pre_http_request_block_editor_customizer_styles( $response, $parsed_args, $url ) {

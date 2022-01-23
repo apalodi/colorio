@@ -8,8 +8,10 @@ class Images {
 	 */
 	public function __construct() {
 		add_action( 'after_setup_theme', [ $this, 'register_image_sizes' ] );
+
 		add_filter( 'wp_calculate_image_sizes', [ $this, 'content_image_sizes_attr' ], 10, 5 );
 		add_filter( 'wp_get_attachment_image_attributes', [ $this, 'post_thumbnail_sizes_attr' ], 10, 3 );
+
 		add_filter( 'post_thumbnail_size', [ $this, 'set_full_size_for_gifs' ], 10, 2 );
 	}
 
@@ -18,7 +20,7 @@ class Images {
 	 */
 	public function register_image_sizes() {
 		// Add custom image sizes.
-		// apalodi_add_image_size( 'colorio-blog', 958, 575, true, array( 1916, 1520, 1125, 728, 480 ) );
+		// apalodi_add_image_size( 'colorio-blog', 958, 575, true, array( 1916, 1520, 1125, 728, 480 ) );.
 	}
 
 	/**
@@ -65,7 +67,7 @@ class Images {
 	 * Add custom image sizes attribute to enhance responsive image functionality.
 	 *
 	 * @param array $attr Attributes for the image markup.
-	 * @param int $attachment Image attachment ID.
+	 * @param int   $attachment Image attachment ID.
 	 * @param array $size Registered image size or flat array of height and width dimensions.
 	 *
 	 * @return array The filtered attributes for the image markup.

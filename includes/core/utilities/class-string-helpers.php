@@ -1,6 +1,6 @@
 <?php
 
-namespace Apalodi\Core\Utils;
+namespace Apalodi\Core\Utilities;
 
 trait String_Helpers {
 	/**
@@ -76,6 +76,7 @@ trait String_Helpers {
 		if ( self::starts_with( $prefix, $string ) ) {
 			return substr( $string, strlen( $prefix ) );
 		}
+
 		return $string;
 	}
 
@@ -107,5 +108,24 @@ trait String_Helpers {
 			return false;
 		}
 		return 0 === substr_compare( $string, $search, $string_length - $search_length, $search_length );
+	}
+
+	/**
+	 * Remove white space in string.
+	 *
+	 * @param string $string The string to look into.
+	 *
+	 * @return string String without whitespace.
+	 */
+	public function remove_white_space( $string ) {
+		$string = str_replace( "\t", ' ', $string );
+		$string = str_replace( "\n", '', $string );
+		$string = str_replace( "\r", '', $string );
+
+		while ( stristr( $string, ' ' ) ) {
+			$string = str_replace( ' ', '', $string );
+		}
+
+		return $string;
 	}
 }

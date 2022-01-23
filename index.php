@@ -1,55 +1,16 @@
-<?php
-/**
- * The main template file.
- *
- * @package Colorio
- */
+<?php get_header(); ?>
 
-get_header(); ?>
+<main id="main" class="site-content">
 
-<div id="content" class="site-content">
-	<div id="primary" class="content-area">
+	<?php do_action( 'apalodi_main_start' ); ?>
 
-		<?php
-		if ( have_posts() ) :
-			if ( ! is_paged() ) :
-				/**
-				 * Hooked functions
-				 *
-				 * @hooked apalodi_featured_section - 10
-				 * @hooked apalodi_blog_fullwidth_widgets - 15
-				 */
-				do_action( 'apalodi_between_blog_posts' );
-			endif;
-			if ( have_posts() ) :
-				?>
-				<div class="section section-posts">
-					<div class="container d-container posts-container">
-						<div class="posts-block posts-block-main content">
-							<div class="row">
-								<?php
-								while ( have_posts() ) :
-									the_post();
-									the_title();
-								endwhile;
-								?>
-							</div>
-						</div>
-						<?php get_sidebar( 'blog' ); ?>
-					</div>
-				</div>
-				<?php
-			endif;
-		else :
-			?>
+	<?php
+	// apalodi()->template('content');
+	?>
 
-			none
+	<?php do_action( 'apalodi_main_end' ); ?>
 
-		<?php endif; ?>
-
-	</div><!-- #primary -->
-
-</div><!-- #content -->
+</main><!-- #main -->
 
 <?php
 get_footer();

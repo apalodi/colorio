@@ -1,6 +1,6 @@
 <?php
 
-namespace Apalodi\Core\Utils;
+namespace Apalodi\Core\Utilities;
 
 trait Sanitization {
 	/**
@@ -19,7 +19,7 @@ trait Sanitization {
 	 *
 	 * @param string $css CSS to sanitize.
 	 *
-	 * @return string  Sanitized CSS.
+	 * @return string Sanitized CSS.
 	 */
 	public function sanitize_css( $css ) {
 		return wp_strip_all_tags( $css );
@@ -28,7 +28,7 @@ trait Sanitization {
 	/**
 	 * Drop-down Pages sanitization callback.
 	 *
-	 * @param int    $page_id    Page ID.
+	 * @param int    $page_id Page ID.
 	 * @param object $setting Setting instance.
 	 *
 	 * @return int|string Page ID if the page is published; otherwise, the setting default.
@@ -47,7 +47,7 @@ trait Sanitization {
 	 * @param string $email   Email address to sanitize.
 	 * @param object $setting Setting instance.
 	 *
-	 * @return string  The sanitized email if not null; otherwise, the setting default.
+	 * @return string The sanitized email if not null; otherwise, the setting default.
 	 */
 	public function sanitize_email( $email, $setting ) {
 		// Strips out all characters that are not allowable in an email address.
@@ -61,9 +61,9 @@ trait Sanitization {
 	 * HEX Color sanitization callback.
 	 *
 	 * @param string $hex_color HEX color to sanitize.
-	 * @param object $setting   Setting instance.
+	 * @param object $setting Setting instance.
 	 *
-	 * @return string  The sanitized hex color if not null; otherwise, the setting default.
+	 * @return string The sanitized hex color if not null; otherwise, the setting default.
 	 */
 	public function sanitize_hex_color( $hex_color, $setting ) {
 		// Sanitize $input as a hex value without the hash prefix.
@@ -78,7 +78,7 @@ trait Sanitization {
 	 *
 	 * @param string $html HTML to sanitize.
 	 *
-	 * @return string  Sanitized HTML.
+	 * @return string Sanitized HTML.
 	 */
 	public function sanitize_html( $html ) {
 		return wp_filter_post_kses( $html );
@@ -87,10 +87,10 @@ trait Sanitization {
 	/**
 	 * Image sanitization callback.
 	 *
-	 * @param string $image   Image filename.
+	 * @param string $image Image filename.
 	 * @param object $setting Setting instance.
 	 *
-	 * @return string  The image filename if the extension is allowed; otherwise, the setting default.
+	 * @return string The image filename if the extension is allowed; otherwise, the setting default.
 	 */
 	public function sanitize_image( $image, $setting ) {
 		/*
@@ -119,7 +119,7 @@ trait Sanitization {
 	 *
 	 * @param string $nohtml The no-HTML content to sanitize.
 	 *
-	 * @return string  Sanitized no-HTML content.
+	 * @return string Sanitized no-HTML content.
 	 */
 	public function sanitize_nohtml( $nohtml ) {
 		return wp_filter_nohtml_kses( $nohtml );
@@ -128,10 +128,10 @@ trait Sanitization {
 	/**
 	 * Number sanitization callback.
 	 *
-	 * @param int    $number  Number to sanitize.
+	 * @param int    $number Number to sanitize.
 	 * @param object $setting Setting instance.
 	 *
-	 * @return int     Sanitized number; otherwise, the setting default.
+	 * @return int Sanitized number; otherwise, the setting default.
 	 */
 	public function sanitize_number_absint( $number, $setting ) {
 		// Ensure $number is an absolute integer (whole number, zero or greater).
@@ -144,10 +144,10 @@ trait Sanitization {
 	/**
 	 * Number Range sanitization callback.
 	 *
-	 * @param int    $number  Number to check within the numeric range defined by the setting.
+	 * @param int    $number Number to check within the numeric range defined by the setting.
 	 * @param object $setting Setting instance.
 	 *
-	 * @return int     The number if falls within the defined range; otherwise, the setting default.
+	 * @return int The number if falls within the defined range; otherwise, the setting default.
 	 */
 	public function sanitize_number_range( $number, $setting ) {
 		// Ensure input is an absolute integer.
@@ -172,10 +172,10 @@ trait Sanitization {
 	/**
 	 * Select sanitization callback.
 	 *
-	 * @param string $input   Slug to sanitize.
+	 * @param string $input Slug to sanitize.
 	 * @param object $setting Setting instance.
 	 *
-	 * @return string  Sanitized slug if it is a valid choice; otherwise, the setting default.
+	 * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
 	 */
 	public function sanitize_select( $input, $setting ) {
 		// Ensure input is a slug.
@@ -205,7 +205,7 @@ trait Sanitization {
 	 * @param array  $icons Icons.
 	 * @param object $setting Setting instance.
 	 *
-	 * @return string  $column
+	 * @return string Sanitized icon.
 	 */
 	public function sanitize_social_icons( $icons, $setting ) {
 		$_icons = [];

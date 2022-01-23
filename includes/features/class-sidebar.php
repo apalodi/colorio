@@ -7,7 +7,34 @@ class Sidebar {
 	 * Constructor.
 	 */
 	public function __construct() {
+		add_filter( 'body_class', [ $this, 'set_body_classes' ] );
 		add_action( 'widgets_init', [ $this, 'register_sidebars' ] );
+	}
+
+	/**
+	 * Adds custom classes to the array of body classes.
+	 *
+	 * @param array $classes Classes for the element.
+	 *
+	 * @return array $classes
+	 */
+	public function set_body_classes( $classes ) {
+		// Add class if sidebar is used in comments.
+		if ( is_active_sidebar( 'sidebar-comments' ) ) {
+			$classes[] = 'has-comments-sidebar';
+		}
+
+		// Add class if sidebar is used in posts.
+		if ( is_active_sidebar( 'sidebar-posts-sidebar' ) ) {
+			$classes[] = 'has-post-sidebar';
+		}
+
+		// Add class if sidebar is used in blog.
+		if ( is_active_sidebar( 'sidebar-blog' ) ) {
+			$classes[] = 'has-blog-sidebar';
+		}
+
+		return array_filter( $classes );
 	}
 
 	/**

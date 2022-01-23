@@ -1,6 +1,6 @@
 <?php
 
-namespace Apalodi\Core\Utils;
+namespace Apalodi\Core\Utilities;
 
 /**
  * Async Request.
@@ -45,6 +45,8 @@ abstract class Async_Request {
 			$this->prefix = apalodi()->get_theme_identifier();
 		}
 
+		// Uses unique prefix per blog so each blog has separate queue.
+		$this->prefix = $this->prefix . '_' . get_current_blog_id();
 		$this->identifier = $this->prefix . '_' . $this->action;
 
 		add_action( 'wp_ajax_' . $this->identifier, [ $this, 'maybe_handle' ] );

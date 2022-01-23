@@ -1,11 +1,6 @@
 <?php
-/**
- * Theme assets.
- *
- * @package Colorio\Core\Utils
- */
 
-namespace Apalodi\Core\Utils;
+namespace Apalodi\Core\Utilities;
 
 /**
  * Assets.

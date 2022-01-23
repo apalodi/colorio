@@ -2,10 +2,11 @@
 
 namespace Apalodi\Features;
 
-class Menu {
+class Related_Posts {
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
+		// delete transient on post update?
 	}
 }

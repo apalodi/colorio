@@ -1,1 +1,13 @@
-colors etc
+{
+	"colors": {
+		"red": "#900"
+	},
+	"loader": {
+		"blocks": {
+			"wp-gallery": ".wp-gallery"
+		},
+		"templates": {
+			"site-header": ".site-header"
+		}
+	}
+}

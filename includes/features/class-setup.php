@@ -10,7 +10,7 @@ class Setup {
 		add_action( 'after_setup_theme', [ $this, 'set_content_width' ], 0 );
 		add_action( 'after_setup_theme', [ $this, 'setup_theme' ] );
 
-		add_action( 'wp_head', [ $this, 'output_meta_theme_color' ] );
+		add_action( 'wp_head', [ $this, 'add_meta_tag_theme_color' ] );
 
 		add_filter( 'http_request_args', [ $this, 'dont_update_theme' ], 5, 2 );
 	}
@@ -81,7 +81,7 @@ class Setup {
 	/**
 	 * Add meta tag to head for theme color.
 	 */
-	public function output_meta_theme_color() {
+	public function add_meta_tag_theme_color() {
 		$color = get_theme_mod( 'theme_color', '#ffffff' );
 		echo "<meta name='theme-color' content='" . esc_attr( $color ) . "'>\n";
 	}

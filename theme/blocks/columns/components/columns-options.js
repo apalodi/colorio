@@ -4,7 +4,7 @@ import { Fragment } from '@wordpress/element';
 import { PanelBody, Icon, RangeControl } from '@wordpress/components';
 import { Responsive, HelpModal } from '@eightshift/frontend-libs/scripts/components';
 import { icons, ucfirst } from '@eightshift/frontend-libs/scripts/editor';
-import manifest from './../manifest.json';
+import manifest from '../manifest.json';
 
 const { attributes: reset, options } = manifest;
 

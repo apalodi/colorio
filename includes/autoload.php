@@ -9,7 +9,7 @@ namespace Apalodi;
  *
  * Few examples
  *     Apalodi\Core\Theme - includes/core/class-theme-php
- *     Apalodi\Core\Utils\Assets - includes/core/utils/class-assets-php
+ *     Apalodi\Core\Utilities\Assets - includes/core/utils/class-assets-php
  */
 spl_autoload_register( function ( $class_name ) {
 	$namespace = 'Apalodi\\';
