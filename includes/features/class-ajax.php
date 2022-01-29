@@ -21,14 +21,14 @@ class Ajax {
 	 * @return string Result of the action.
 	 */
 	public function do_ajax() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This isn't form submition.
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This isn't form submission.
 		if ( empty( $_REQUEST['apalodi-ajax'] ) ) {
 			return;
 		}
 
 		$this->ajax_headers();
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This isn't form submition.
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This isn't form submission.
 		$action = sanitize_text_field( wp_unslash( $_REQUEST['apalodi-ajax'] ) );
 		$action = str_replace( '-', '_', $action );
 

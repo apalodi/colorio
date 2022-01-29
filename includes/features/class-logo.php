@@ -8,6 +8,31 @@ class Logo {
 	 */
 	public function __construct() {
 		apalodi()::macro( 'get_logo', [ $this, 'get_logo' ] );
+
+		$this->add_customize_settings();
+	}
+
+	/**
+	 * Register settings for logos.
+	 */
+	private function add_customize_settings() {
+		apalodi()->customize()->add_field( 'dark_logo', [
+			'setting' => [
+				'default' => '',
+				'transport' => 'postMessage',
+				'sanitize_callback' => 'absint',
+			],
+			'control' => [
+				'type' => 'cropped_image',
+				'label' => esc_html__( 'Logo for Dark Header (optional)', 'asona' ),
+				'section' => 'title_tagline',
+				'priority' => 8,
+				'flex_width'  => true,
+				'flex_height' => false,
+				'width' => 300,
+				'height' => 100,
+			],
+		]);
 	}
 
 	/**

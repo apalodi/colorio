@@ -2,7 +2,7 @@
 
 namespace Apalodi\Core\Utilities;
 
-trait Array_Helpers {
+class Array_Helpers {
 	/**
 	 * Parses the string into variables without the max_input_vars limitation.
 	 *
@@ -10,7 +10,7 @@ trait Array_Helpers {
 	 *
 	 * @return array Parsed array.
 	 */
-	public function parse_str( $string ) {
+	public static function parse_str( $string ) {
 		if ( '' === $string ) {
 			return false;
 		}
@@ -28,7 +28,7 @@ trait Array_Helpers {
 			if ( ! isset( $result[ $k ] ) ) {
 				$result += $params;
 			} else {
-				$result[ $k ] = $this->array_merge_recursive( $result[ $k ], $params[ $k ] );
+				$result[ $k ] = self::array_merge_recursive( $result[ $k ], $params[ $k ] );
 			}
 		}
 
@@ -45,13 +45,13 @@ trait Array_Helpers {
 	 *
 	 * @return array Merged array.
 	 */
-	public function array_merge_recursive( array $array1, array $array2 ) {
+	public static function array_merge_recursive( array $array1, array $array2 ) {
 		$merged = $array1;
 
 		foreach ( $array2 as $key => $value ) {
 
 			if ( is_array( $value ) && isset( $merged[ $key ] ) && is_array( $merged[ $key ] ) ) {
-				$merged[ $key ] = $this->array_merge_recursive( $merged[ $key ], $value );
+				$merged[ $key ] = self::array_merge_recursive( $merged[ $key ], $value );
 			} elseif ( is_numeric( $key ) && isset( $merged[ $key ] ) ) {
 				$merged[] = $value;
 			} else {
@@ -72,14 +72,14 @@ trait Array_Helpers {
 	 *
 	 * @return array Merged user defined values with defaults.
 	 */
-	public function parse_args( $args, $defaults ) {
+	public static function parse_args( $args, $defaults ) {
 		$args = (array) $args;
 		$defaults = (array) $defaults;
 		$result = $defaults;
 
 		foreach ( $args as $k => $v ) {
 			if ( is_array( $v ) && isset( $result[ $k ] ) ) {
-				$result[ $k ] = $this->parse_args( $v, $result[ $k ] );
+				$result[ $k ] = self::parse_args( $v, $result[ $k ] );
 			} else {
 				$result[ $k ] = $v;
 			}
@@ -99,7 +99,7 @@ trait Array_Helpers {
 	 *
 	 * @return string Imploded array keys with value.
 	 */
-	public function implode_array_keys( $array, $value, $remove = false, $before = '', $after = '' ) {
+	public static function implode_array_keys( $array, $value, $remove = false, $before = '', $after = '' ) {
 		if ( is_array( $remove ) ) {
 			foreach ( $remove as $key ) {
 				unset( $array[ $key ] );

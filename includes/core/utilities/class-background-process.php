@@ -207,8 +207,8 @@ abstract class Background_Process extends Async_Request {
 	 * defined in the time_exceeded() method.
 	 */
 	protected function lock_process() {
-		$this->start_time = time();
 		// Set start time of current process.
+		$this->start_time = time();
 
 		// 1 minute
 		$lock_duration = ( property_exists( $this, 'queue_lock_time' ) ) ? $this->queue_lock_time : 60;
@@ -322,7 +322,7 @@ abstract class Background_Process extends Async_Request {
 	 */
 	protected function memory_exceeded() {
 		$memory_limit = $this->get_memory_limit() * 0.9;
-		// 90% of max memory
+		// 90% of max memory.
 		$current_memory = memory_get_usage( true );
 		$return = false;
 
@@ -364,7 +364,7 @@ abstract class Background_Process extends Async_Request {
 	protected function time_exceeded() {
 		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Prefix is theme identifier and action name.
 		$finish = $this->start_time + apply_filters( $this->identifier . '_default_time_limit', 20 );
-		// 20 seconds
+		// 20 seconds.
 		$return = false;
 
 		if ( time() >= $finish ) {

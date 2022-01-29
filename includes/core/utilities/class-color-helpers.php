@@ -2,7 +2,7 @@
 
 namespace Apalodi\Core\Utilities;
 
-trait Color_Helpers {
+class Color_Helpers {
 	/**
 	 * Converts a color from hex to rgba.
 	 *
@@ -12,7 +12,7 @@ trait Color_Helpers {
 	 *
 	 * @return string|array
 	 */
-	public function hex_to_rgba( $color, $opacity = 1, $return_type = 'array' ) {
+	public static function hex_to_rgba( $color, $opacity = 1, $return_type = 'array' ) {
 		$color = str_replace( '#', '', $color );
 
 		if ( strlen( $color ) === 3 ) {
@@ -43,7 +43,7 @@ trait Color_Helpers {
 	 *
 	 * @return string|array
 	 */
-	public function rgba_to_hsla( $color, $opacity = 1, $return_type = 'array' ) {
+	public static function rgba_to_hsla( $color, $opacity = 1, $return_type = 'array' ) {
 		$r = $color[0] / 255;
 		$g = $color[1] / 255;
 		$b = $color[2] / 255;
@@ -96,8 +96,8 @@ trait Color_Helpers {
 	 *
 	 * @return string|array
 	 */
-	public function hex_to_hsla( $color, $opacity = 1, $return_type = 'array' ) {
-		$rgba = $this->hex_to_rgba( $color, $opacity );
-		return $this->rgba_to_hsla( $rgba, $opacity, $return_type );
+	public static function hex_to_hsla( $color, $opacity = 1, $return_type = 'array' ) {
+		$rgba = self::hex_to_rgba( $color, $opacity );
+		return self::rgba_to_hsla( $rgba, $opacity, $return_type );
 	}
 }

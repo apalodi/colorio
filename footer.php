@@ -1,11 +1,6 @@
-<?php
-	/**
-	 * Triggered before the closing #page tag.
-	 *
-	 * @hooked apalodi_site_footer - 10
-	 */
-	do_action( 'apalodi_page_end' );
-?>
+<?php apalodi()->template( 'site-footer' ); ?>
+
+<?php do_action( 'apalodi_page_end' ); ?>
 
 </div><!-- #page -->
 

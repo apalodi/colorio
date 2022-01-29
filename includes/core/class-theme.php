@@ -2,12 +2,15 @@
 
 namespace Apalodi\Core;
 
+use Apalodi\Core\Admin\Notices;
+use Apalodi\Core\Customize\Manager;
 use Apalodi\Core\Models\Option;
 use Apalodi\Core\Models\Post;
 use Apalodi\Core\Models\Term;
 use Apalodi\Core\Models\Query;
 use Apalodi\Core\Models\Transient;
 use Apalodi\Core\Models\User;
+use Apalodi\Core\Traits\Singleton;
 use Apalodi\Core\Traits\Macroable;
 use Apalodi\Core\Traits\Tag_Attributes;
 use Exception;
@@ -20,6 +23,7 @@ use Exception;
  * @method string thisMenuHasMacro() Added in Apalodi\Features\Menu
  */
 class Theme {
+	use Singleton;
 	use Macroable;
 	use Tag_Attributes;
 
@@ -31,31 +35,11 @@ class Theme {
 	protected $theme_identifier;
 
 	/**
-	 * The single instance of the class.
-	 *
-	 * @var Theme
-	 */
-	protected static $instance;
-
-	/**
 	 * Modules and objects instances list
 	 *
 	 * @var array
 	 */
 	protected $factory = [];
-
-	/**
-	 * Ensures only one instance is loaded or can be loaded.
-	 *
-	 * @return object Main instance.
-	 */
-	public static function get_instance() {
-		if ( is_null( self::$instance ) ) {
-			self::$instance = new self();
-		}
-
-		return self::$instance;
-	}
 
 	/**
 	 * Load theme functions and features.
@@ -130,6 +114,24 @@ class Theme {
 		}
 
 		return $this->factory[ $key ];
+	}
+
+	/**
+	 * Get admin notices.
+	 *
+	 * @return Notices Admin notices.
+	 */
+	public function admin_notice() {
+		return Notices::get_instance();
+	}
+
+	/**
+	 * Get Customize Manager.
+	 *
+	 * @return Manager Customize Manager.
+	 */
+	public function customize() {
+		return $this->factory( 'customize', new Manager() );
 	}
 
 	/**

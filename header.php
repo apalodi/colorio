@@ -15,10 +15,6 @@
 
 <div id="page" class="site">
 
-<?php
-	/**
-	 * Triggered after the opening #page tag.
-	 *
-	 * @hooked apalodi_site_header - 10
-	 */
-	do_action( 'apalodi_page_start' );
+<?php do_action( 'apalodi_page_start' ); ?>
+
+<?php apalodi()->template( 'site-header' ); ?>

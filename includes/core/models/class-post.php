@@ -84,6 +84,7 @@ class Post {
 		} else {
 
 			$published = get_the_date( '', $post );
+
 		}//end if
 
 		return apply_filters( 'apalodi_published_time', $published, $post, $number_of_days, $diff );

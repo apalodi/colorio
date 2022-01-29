@@ -2,7 +2,7 @@
 
 namespace Apalodi\Core\Utilities;
 
-trait Sanitization {
+class Sanitization {
 	/**
 	 * Checkbox sanitization callback.
 	 *
@@ -10,7 +10,7 @@ trait Sanitization {
 	 *
 	 * @return bool Whether the checkbox is checked.
 	 */
-	public function sanitize_checkbox( $checked ) {
+	public static function sanitize_checkbox( $checked ) {
 		return $checked ? true : false;
 	}
 
@@ -21,7 +21,7 @@ trait Sanitization {
 	 *
 	 * @return string Sanitized CSS.
 	 */
-	public function sanitize_css( $css ) {
+	public static function sanitize_css( $css ) {
 		return wp_strip_all_tags( $css );
 	}
 
@@ -33,7 +33,7 @@ trait Sanitization {
 	 *
 	 * @return int|string Page ID if the page is published; otherwise, the setting default.
 	 */
-	public function sanitize_dropdown_pages( $page_id, $setting ) {
+	public static function sanitize_dropdown_pages( $page_id, $setting ) {
 		// Ensure $input is an absolute integer.
 		$page_id = absint( $page_id );
 
@@ -49,7 +49,7 @@ trait Sanitization {
 	 *
 	 * @return string The sanitized email if not null; otherwise, the setting default.
 	 */
-	public function sanitize_email( $email, $setting ) {
+	public static function sanitize_email( $email, $setting ) {
 		// Strips out all characters that are not allowable in an email address.
 		$email = sanitize_email( $email );
 
@@ -65,7 +65,7 @@ trait Sanitization {
 	 *
 	 * @return string The sanitized hex color if not null; otherwise, the setting default.
 	 */
-	public function sanitize_hex_color( $hex_color, $setting ) {
+	public static function sanitize_hex_color( $hex_color, $setting ) {
 		// Sanitize $input as a hex value without the hash prefix.
 		$hex_color = sanitize_hex_color( $hex_color );
 
@@ -80,7 +80,7 @@ trait Sanitization {
 	 *
 	 * @return string Sanitized HTML.
 	 */
-	public function sanitize_html( $html ) {
+	public static function sanitize_html( $html ) {
 		return wp_filter_post_kses( $html );
 	}
 
@@ -92,7 +92,7 @@ trait Sanitization {
 	 *
 	 * @return string The image filename if the extension is allowed; otherwise, the setting default.
 	 */
-	public function sanitize_image( $image, $setting ) {
+	public static function sanitize_image( $image, $setting ) {
 		/*
 		* Array of valid image file types.
 		*
@@ -121,7 +121,7 @@ trait Sanitization {
 	 *
 	 * @return string Sanitized no-HTML content.
 	 */
-	public function sanitize_nohtml( $nohtml ) {
+	public static function sanitize_nohtml( $nohtml ) {
 		return wp_filter_nohtml_kses( $nohtml );
 	}
 
@@ -133,7 +133,7 @@ trait Sanitization {
 	 *
 	 * @return int Sanitized number; otherwise, the setting default.
 	 */
-	public function sanitize_number_absint( $number, $setting ) {
+	public static function sanitize_number_absint( $number, $setting ) {
 		// Ensure $number is an absolute integer (whole number, zero or greater).
 		$number = absint( $number );
 
@@ -149,7 +149,7 @@ trait Sanitization {
 	 *
 	 * @return int The number if falls within the defined range; otherwise, the setting default.
 	 */
-	public function sanitize_number_range( $number, $setting ) {
+	public static function sanitize_number_range( $number, $setting ) {
 		// Ensure input is an absolute integer.
 		$number = absint( $number );
 
@@ -177,7 +177,7 @@ trait Sanitization {
 	 *
 	 * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
 	 */
-	public function sanitize_select( $input, $setting ) {
+	public static function sanitize_select( $input, $setting ) {
 		// Ensure input is a slug.
 		$input = sanitize_key( $input );
 
@@ -195,7 +195,7 @@ trait Sanitization {
 	 *
 	 * @return string Sanitized URL.
 	 */
-	public function sanitize_url( $url ) {
+	public static function sanitize_url( $url ) {
 		return esc_url_raw( $url );
 	}
 
@@ -207,7 +207,7 @@ trait Sanitization {
 	 *
 	 * @return string Sanitized icon.
 	 */
-	public function sanitize_social_icons( $icons, $setting ) {
+	public static function sanitize_socials( $icons, $setting ) {
 		$_icons = [];
 		$choices = $setting->manager->get_control( $setting->id )->choices;
 		$_choices = [];

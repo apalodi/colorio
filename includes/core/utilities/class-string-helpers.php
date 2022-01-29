@@ -2,7 +2,7 @@
 
 namespace Apalodi\Core\Utilities;
 
-trait String_Helpers {
+class String_Helpers {
 	/**
 	 * Converts a string from camel case to kebap case.
 	 *
@@ -127,5 +127,24 @@ trait String_Helpers {
 		}
 
 		return $string;
+	}
+
+	/**
+	 * Format lines.
+	 *
+	 * @param array $lines Lines to format.
+	 * @param int   $tabs Number of tabs for the offest.
+	 *
+	 * @return string Formated lines.
+	 */
+	public static function format_lines( $lines, $tabs = 1 ) {
+		$line_tabs = str_repeat( "\t", $tabs );
+		$end_tabs = str_repeat( "\t", $tabs - 1 );
+
+		$lines = array_map( function( $line ) use ( $line_tabs ) {
+			return "\n{$line_tabs}{$line}";
+		}, $lines);
+
+		return implode( '', $lines ) . "\n{$end_tabs}";
 	}
 }

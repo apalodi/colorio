@@ -22,11 +22,12 @@ function apalodi() {
 /**
  * Theme Setup.
  *
- * 1. Auto include files from functions directory.
+ * 1. Auto include files.
  * 2. Load and init theme features.
  */
 apalodi()->setup( 'colorio', [
 	'includes' => [
+		'includes/core/libraries',
 		'includes/functions',
 	],
 	'features' => [

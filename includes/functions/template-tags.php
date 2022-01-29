@@ -1,22 +1,6 @@
 <?php
 
 /**
- * Displays the site header.
- */
-function apalodi_site_header() {
-	apalodi()->template( 'site-header' );
-}
-add_action( 'apalodi_page_startss', 'apalodi_site_header', 10 );
-
-/**
- * Displays the site footer.
- */
-function apalodi_site_footer() {
-	apalodi()->template( 'site-footer' );
-}
-add_action( 'apalodi_page_endss', 'apalodi_site_footer', 10 );
-
-/**
  * Display the pagination.
  *
  * @param object $query WP_Query.
